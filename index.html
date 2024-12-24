@@ -81,7 +81,7 @@
                             <h3 class="project-title">TaskMaster</h3>
                             <p>A full-stack task management application built with React, Node.js, and MongoDB. Features include user authentication, real-time updates, and a responsive design.</p>
                             <div class="project-links">
-                                <a href="#" class="project-link">View Demo</a>
+                                <a href="#" class="project-link" id="viewDemoBtn1">View Demo</a>
                                 <a href="#" class="project-link">GitHub Repo</a>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                             <h3 class="project-title">WeatherNow</h3>
                             <p>A weather forecasting web app using React and integrating with a third-party weather API. Includes geolocation, 5-day forecasts, and dynamic weather icons.</p>
                             <div class="project-links">
-                                <a href="#" class="project-link">View Demo</a>
+                                <a href="#" class="project-link" id="viewDemoBtn2">View Demo</a>
                                 <a href="#" class="project-link">GitHub Repo</a>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                             <h3 class="project-title">CodeCollab</h3>
                             <p>A real-time collaborative coding platform built with Node.js, Socket.io, and CodeMirror. Supports multiple programming languages and live code execution.</p>
                             <div class="project-links">
-                                <a href="#" class="project-link">View Demo</a>
+                                <a href="#" class="project-link" id="viewDemoBtn3">View Demo</a>
                                 <a href="#" class="project-link">GitHub Repo</a>
                             </div>
                         </div>
@@ -130,6 +130,35 @@
             <p>&copy; 2025 Viet Tran. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Modals for each project -->
+
+    <!-- TaskMaster Modal -->
+    <div id="demoModal1" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBtn1">&times;</span>
+            <h2>TaskMaster Demo</h2>
+            <iframe src="demo-video-or-url" width="100%" height="400px"></iframe>
+        </div>
+    </div>
+
+    <!-- WeatherNow Modal -->
+    <div id="demoModal2" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBtn2">&times;</span>
+            <h2>WeatherNow Demo</h2>
+            <iframe src="demo-video-or-url" width="100%" height="400px"></iframe>
+        </div>
+    </div>
+
+    <!-- CodeCollab Modal -->
+    <div id="demoModal3" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBtn3">&times;</span>
+            <h2>CodeCollab Demo</h2>
+            <iframe src="demo-video-or-url" width="100%" height="400px"></iframe>
+        </div>
+    </div>
 
     <script src="script.js" defer></script>
 </body>
