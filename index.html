@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viet Tran - Fullstack Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="code-background"></div>
+        <div class="container">
+            <div class="profile-picture">
+                <img src="img/profilepic.jpeg" alt="Profile Picture" />
+            </div>
+            <h1>Viet Tran</h1>
+            <p>Software Engineer</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <div class="container">
+                <h2>&lt;About Me /&gt;</h2>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <div class="terminal-button red"></div>
+                            <div class="terminal-button yellow"></div>
+                            <div class="terminal-button green"></div>
+                        </div>
+                        <div class="terminal-title">viet-tran@developer:~$</div>
+                    </div>
+                    <div class="terminal-body">
+                        <p>> Hello, World! I'm Viet Tran, a passionate fullstack engineer with a knack for crafting efficient and user-friendly web applications.</p>
+                        <p>> My journey in tech began at Metropolia's University of Applied Sciences, where I'm Majoring in Software Engineering. Since then, I've been on a mission to turn complex problems into elegant solutions.</p>
+                        <p>> When I'm not coding, I love diving into new technologies, exploring the vibrant streets of Helsinki with my partner, and caring for our thriving aquarium.</p>
+                        <p>> Let's build something amazing together! <span class="cursor"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>&lt;Skills /&gt;</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">React (Vite)</div>
+                    <div class="skill-item">HTML5/CSS</div>
+                    <div class="skill-item">Node.js</div>
+                    <div class="skill-item">Express</div>
+                    <div class="skill-item">MongoDB Atlas</div>
+                    <div class="skill-item">MySQL</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">RESTful APIs</div>
+                    <div class="skill-item">Figma</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>&lt;Projects /&gt;</h2>
+                <div class="projects-grid">
+                    <div class="project-item">
+                        <img src="/placeholder.svg?height=200&width=300" alt="TaskMaster" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">TaskMaster</h3>
+                            <p>A full-stack task management application built with React, Node.js, and MongoDB. Features include user authentication, real-time updates, and a responsive design.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Demo</a>
+                                <a href="#" class="project-link">GitHub Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <img src="/placeholder.svg?height=200&width=300" alt="WeatherNow" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">WeatherNow</h3>
+                            <p>A weather forecasting web app using React and integrating with a third-party weather API. Includes geolocation, 5-day forecasts, and dynamic weather icons.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Demo</a>
+                                <a href="#" class="project-link">GitHub Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <img src="/placeholder.svg?height=200&width=300" alt="CodeCollab" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">CodeCollab</h3>
+                            <p>A real-time collaborative coding platform built with Node.js, Socket.io, and CodeMirror. Supports multiple programming languages and live code execution.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Demo</a>
+                                <a href="#" class="project-link">GitHub Repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>&lt;Contact Me /&gt;</h2>
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Viet Tran. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
