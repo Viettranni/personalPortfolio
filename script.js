@@ -128,7 +128,7 @@ function typeText() {
             terminalBody.insertBefore(textNode, cursor);
             charIndex++;
         }
-        setTimeout(typeText, 25);
+        setTimeout(typeText, 35);
     }
 }
 
@@ -249,3 +249,13 @@ form.addEventListener('submit', async (event) => {
     }
 });
 // HANDLING ENDS
+
+// Remove excess logo 
+window.onload = function () {
+  var splineElement = document.querySelectorAll("spline-viewer");
+
+  for (let pas = 0; pas < splineElement.length; pas++) {
+    var shadowRoot = splineElement[pas].shadowRoot;
+    shadowRoot.querySelector("#logo").remove();
+  }
+};
