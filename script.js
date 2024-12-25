@@ -85,15 +85,50 @@ gsap.from('.project-item', {
 
 // Animate terminal text typing
 const terminalBody = document.querySelector('.terminal-body');
-const terminalText = terminalBody.innerHTML;
+const terminalContent = terminalBody.innerHTML.trim();
 terminalBody.innerHTML = '';
 let charIndex = 0;
 
+const cursor = document.createElement('span');
+cursor.classList.add('cursor');
+terminalBody.appendChild(cursor);
+
 function typeText() {
-    if (charIndex < terminalText.length) {
-        terminalBody.innerHTML += terminalText.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeText, 20); // Fine-tune this delay to adjust typing speed
+    if (charIndex < terminalContent.length) {
+        let char = terminalContent[charIndex];
+        if (char === '<') {
+            let closingIndex = terminalContent.indexOf('>', charIndex);
+            if (closingIndex !== -1) {
+                let tag = terminalContent.slice(charIndex, closingIndex + 1);
+                let element = document.createElement('div');
+                element.innerHTML = tag;
+                terminalBody.insertBefore(element.firstChild, cursor);
+                charIndex = closingIndex + 1;
+            } else {
+                charIndex++;
+            }
+        } else if (char === '&') {
+            let semicolonIndex = terminalContent.indexOf(';', charIndex);
+            if (semicolonIndex !== -1) {
+                let entity = terminalContent.slice(charIndex, semicolonIndex + 1);
+                let decodedEntity = document.createElement('div');
+                decodedEntity.innerHTML = entity;
+                terminalBody.insertBefore(document.createTextNode(decodedEntity.textContent), cursor);
+                charIndex = semicolonIndex + 1;
+            } else {
+                let textNode = document.createTextNode(char);
+                terminalBody.insertBefore(textNode, cursor);
+                charIndex++;
+            }
+        } else if (char === '\n' || (char === '\r' && terminalContent[charIndex + 1] === '\n')) {
+            terminalBody.insertBefore(document.createElement('br'), cursor);
+            charIndex += char === '\r' ? 2 : 1;
+        } else {
+            let textNode = document.createTextNode(char);
+            terminalBody.insertBefore(textNode, cursor);
+            charIndex++;
+        }
+        setTimeout(typeText, 25);
     }
 }
 
