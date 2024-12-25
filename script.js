@@ -205,6 +205,26 @@ window.addEventListener('click', (event) => {
 // HANDLING FORM 
 const form = document.getElementById('contactForm');
 const thankYouMessage = document.getElementById('thankYouMessage');
+const thankYouText = "Thank you for your message! I'll get back to you soon! :)";
+
+function typeThankYouMessage() {
+    let charIndex = 0;
+    thankYouMessage.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.classList.add('cursor');
+    thankYouMessage.appendChild(cursor);
+
+    function typeChar() {
+        if (charIndex < thankYouText.length) {
+            let textNode = document.createTextNode(thankYouText[charIndex]);
+            thankYouMessage.insertBefore(textNode, cursor);
+            charIndex++;
+            setTimeout(typeChar, 50); // Adjust speed as needed
+        }
+    }
+
+    typeChar();
+}
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent default form submission
@@ -220,9 +240,10 @@ form.addEventListener('submit', async (event) => {
     });
 
     if (response.ok) {
-        // Hide form and display thank-you message
+        // Hide form and display thank-you message with typing effect
         form.style.display = 'none';
         thankYouMessage.style.display = 'block';
+        typeThankYouMessage();
     } else {
         alert('Oops! There was a problem submitting your form.');
     }
