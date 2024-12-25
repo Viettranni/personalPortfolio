@@ -259,3 +259,38 @@ window.onload = function () {
     shadowRoot.querySelector("#logo").remove();
   }
 };
+
+// Animate the FAB options
+const fabContainer = document.querySelector('.fab-container');
+const fabOptions = document.querySelectorAll('.fab-options li');
+let isExpanded = false;
+
+fabContainer.addEventListener('click', (e) => {
+    if (e.target.closest('.fab-button')) {
+        isExpanded = !isExpanded;
+        if (isExpanded) {
+            fabOptions.forEach((option, index) => {
+                option.style.transform = `translateY(-${(index + 1) * 60}px)`;
+                option.style.opacity = '1';
+                option.style.pointerEvents = 'auto';
+            });
+        } else {
+            fabOptions.forEach((option) => {
+                option.style.transform = 'translateY(0)';
+                option.style.opacity = '0';
+                option.style.pointerEvents = 'none';
+            });
+        }
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.fab-container') && isExpanded) {
+        isExpanded = false;
+        fabOptions.forEach((option) => {
+            option.style.transform = 'translateY(0)';
+            option.style.opacity = '0';
+            option.style.pointerEvents = 'none';
+        });
+    }
+});

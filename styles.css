@@ -403,3 +403,119 @@ footer {
         transform: translateY(0);
     }
 }
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 243, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 243, 255, 0);
+    }
+}
+
+.fab-container {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 999;
+}
+
+.fab-button {
+    width: 60px;
+    height: 60px;
+    background-color: var(--neon-blue);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: var(--dark-bg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.fab-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    animation: none;
+}
+
+.fab-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: 70px; /* Fixed point where options will start */
+    right: 0;
+    opacity: 0;
+    transform: translateY(10px); /* Initial position slightly down */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for opacity and movement */
+    pointer-events: none;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.fab-container:hover .fab-options,
+.fab-container:focus-within .fab-options {
+    opacity: 1;
+    transform: translateY(0); /* Options will slide up smoothly */
+    pointer-events: auto;
+}
+
+.fab-options li {
+    position: relative; /* Ensures items are positioned relative to parent */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Avoid changes to margin that cause shifts */
+}
+
+.fab-options a {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--neon-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark-bg);
+    text-decoration: none;
+    font-size: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab-options a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+
+/* Tooltip */
+.fab-options a::after {
+    content: attr(data-tooltip); /* Use the data-tooltip attribute for the text */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    right: 150%; /* Position to the left of the element */
+    transform: translateY(-50%); /* Center vertically with transform */
+    background-color: #333; /* Tooltip background color */
+    color: #fff; /* Tooltip text color */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap; /* Prevent text from wrapping */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10; /* Ensure tooltip is above other elements */
+}
+
+.fab-options a:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(-5px); /* Slight animation to the left */
+}
+
