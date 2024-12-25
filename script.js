@@ -201,3 +201,30 @@ window.addEventListener('click', (event) => {
 });
 
 // MODAL PART ENDS
+
+// HANDLING FORM 
+const form = document.getElementById('contactForm');
+const thankYouMessage = document.getElementById('thankYouMessage');
+
+form.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    // Gather form data
+    const formData = new FormData(form);
+
+    // Send data to Formspree
+    const response = await fetch('https://formspree.io/f/mrbbezve', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' },
+    });
+
+    if (response.ok) {
+        // Hide form and display thank-you message
+        form.style.display = 'none';
+        thankYouMessage.style.display = 'block';
+    } else {
+        alert('Oops! There was a problem submitting your form.');
+    }
+});
+// HANDLING ENDS
