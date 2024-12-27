@@ -20,7 +20,7 @@ const codeSnippets = [
 
 function animateCodeBackground() {
     let content = '';
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 100; i++) {
         content += codeSnippets[Math.floor(Math.random() * codeSnippets.length)] + '\n';
     }
     codeBackground.textContent = content;
@@ -128,15 +128,9 @@ function typeText() {
             terminalBody.insertBefore(textNode, cursor);
             charIndex++;
         }
-        setTimeout(typeText, 35);
+        setTimeout(typeText, 15);
     }
 }
-
-ScrollTrigger.create({
-    trigger: '.terminal',
-    start: 'top 80%',
-    onEnter: () => typeText()
-});
 
 // Header fade-in animation
 document.addEventListener("DOMContentLoaded", () => {
@@ -258,6 +252,12 @@ window.onload = function () {
     var shadowRoot = splineElement[pas].shadowRoot;
     shadowRoot.querySelector("#logo").remove();
   }
+
+  ScrollTrigger.create({
+    trigger: '.terminal',
+    start: 'top 80%',
+    onEnter: () => typeText()
+});
 };
 
 // Animate the FAB options
