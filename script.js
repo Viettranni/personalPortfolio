@@ -20,7 +20,7 @@ const codeSnippets = [
 
 function animateCodeBackground() {
     let content = '';
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 150; i++) {
         content += codeSnippets[Math.floor(Math.random() * codeSnippets.length)] + '\n';
     }
     codeBackground.textContent = content;
@@ -50,7 +50,7 @@ gsap.utils.toArray('section').forEach(section => {
             start: 'top 80%',
             end: 'bottom 20%',
             toggleActions: 'play none none reverse',
-            markers: false  // Use markers for debugging, set to `true` if necessary
+            markers: false  
         }
     });
 });
@@ -294,3 +294,50 @@ document.addEventListener('click', (e) => {
         });
     }
 });
+
+// Scroll down Effect for Skills
+const scrollIndicator = document.querySelector('.scroll-indicator');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) { 
+        scrollIndicator.style.opacity = '0';
+    } else {
+        scrollIndicator.style.opacity = '1';
+    }
+});
+
+scrollIndicator.addEventListener('click', () => {
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+    });
+});
+
+// Skills animation
+function animateSkills() {
+  const skillItems = document.querySelectorAll('.skill-item');
+  
+  skillItems.forEach((item, index) => {
+      gsap.fromTo(item, 
+          {
+              opacity: 0,
+              x: index % 2 === 0 ? -100 : 100
+          },
+          {
+              opacity: 1,
+              x: 0,
+              duration: 1,
+              ease: 'power3.out',
+              scrollTrigger: {
+                  trigger: item,
+                  start: 'top bottom-=100',
+                  end: 'bottom center',
+                  toggleActions: 'play none none reverse'
+              }
+          }
+      );
+  });
+}
+
+// Call the function when the DOM is loaded
+document.addEventListener('DOMContentLoaded', animateSkills);
