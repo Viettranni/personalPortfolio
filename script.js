@@ -299,7 +299,7 @@ document.addEventListener('click', (e) => {
 const scrollIndicator = document.querySelector('.scroll-indicator');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) { 
+    if (window.scrollY > 800) { 
         scrollIndicator.style.opacity = '0';
     } else {
         scrollIndicator.style.opacity = '1';
@@ -315,28 +315,28 @@ scrollIndicator.addEventListener('click', () => {
 
 // Skills animation
 function animateSkills() {
-  const skillItems = document.querySelectorAll('.skill-item');
-  
-  skillItems.forEach((item, index) => {
-      gsap.fromTo(item, 
-          {
-              opacity: 0,
-              x: index % 2 === 0 ? -100 : 100
-          },
-          {
-              opacity: 1,
-              x: 0,
-              duration: 1,
-              ease: 'power3.out',
-              scrollTrigger: {
-                  trigger: item,
-                  start: 'top bottom-=100',
-                  end: 'bottom center',
-                  toggleActions: 'play none none reverse'
-              }
-          }
-      );
-  });
+    const skillItems = document.querySelectorAll('.skill-item');
+    
+    skillItems.forEach((item, index) => {
+        gsap.fromTo(item, 
+            {
+                opacity: 0,
+                x: index % 2 === 0 ? -50 : 50
+            },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top bottom-=100',
+                    end: 'bottom center',
+                    toggleActions: 'play none none reverse'
+                }
+            }
+        );
+    });
 }
 
 // Call the function when the DOM is loaded

@@ -33,7 +33,7 @@ header {
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     opacity: 0;
     animation: fadeIn 1.5s ease-in-out forwards;
 }
@@ -173,21 +173,52 @@ h2 {
     object-fit: cover;
 }
 
+#skills {
+    position: relative;
+    overflow: hidden;
+}
+
+#skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(0, 243, 255, 0.2) 0%, rgba(10, 10, 10, 0) 70%);
+    z-index: -1;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .skill-item {
-    background-color: var(--code-bg);
+    background-color: rgba(30, 30, 30, 0.8);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: 'Fira Code', monospace;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
 }
 
 .skill-item::before {
@@ -210,7 +241,22 @@ h2 {
 
 .skill-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.5);
+}
+
+.skill-item i {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--neon-blue);
+}
+
+#skills h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    position: relative;
+    z-index: 1;
 }
 
 .projects-grid {
