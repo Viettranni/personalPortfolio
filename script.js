@@ -265,23 +265,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const fabContainer = document.querySelector('.fab-container');
     const fabButton = fabContainer.querySelector('.fab-button');
 
-    fabButton.addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent the click from immediately closing the menu
+    // Function to toggle the active state
+    function toggleActive(e) {
+        e.preventDefault(); // Prevent default touch behavior
+        e.stopPropagation(); // Prevent the event from bubbling up
         fabContainer.classList.toggle('active');
-    });
+    }
 
-    // Close the menu when clicking outside
-    document.addEventListener('click', function(e) {
+    // Add event listeners for both click and touch events
+    fabButton.addEventListener('click', toggleActive);
+    fabButton.addEventListener('touchstart', toggleActive);
+
+    // Close the menu when clicking or touching outside
+    function closeMenu(e) {
         if (!fabContainer.contains(e.target)) {
             fabContainer.classList.remove('active');
         }
-    });
+    }
+
+    document.addEventListener('click', closeMenu);
+    document.addEventListener('touchstart', closeMenu);
 
     // Prevent clicks on the options from closing the menu
     const fabOptions = fabContainer.querySelector('.fab-options');
-    fabOptions.addEventListener('click', function(e) {
+    function stopPropagation(e) {
         e.stopPropagation();
-    });
+    }
+
+    fabOptions.addEventListener('click', stopPropagation);
+    fabOptions.addEventListener('touchstart', stopPropagation);
 });
 
 // Scroll down Effect for Skills

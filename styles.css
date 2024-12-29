@@ -496,114 +496,7 @@ footer {
 
 .fab-container {
     position: fixed;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    transition: all 0.3s ease;
-    animation: gentle-pulse 3s infinite;
-}
-
-.fab-button {
-    width: 40px;
-    height: 40px;
-    background-color: var(--neon-blue);
-    border-radius: 5px 0 0 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.fab-button::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    opacity: 0;
-    border-radius: 100%;
-    transform: scale(1, 1) translate(-50%);
-    transform-origin: 50% 50%;
-}
-
-@keyframes ripple {
-    0% {
-        transform: scale(0, 0);
-        opacity: 1;
-    }
-    20% {
-        transform: scale(25, 25);
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: scale(40, 40);
-    }
-}
-
-.fab-button:focus:not(:active)::after {
-    animation: ripple 1s ease-out;
-}
-
-.fab-button i {
-    color: var(--dark-bg);
-    font-size: 20px;
-    transition: transform 0.3s ease;
-}
-
-.fab-options {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.5s ease, opacity 0.3s ease;
-    opacity: 0;
-}
-
-.fab-container:hover .fab-options {
-    max-height: 200px; /* Adjust based on the number of options */
-    opacity: 1;
-}
-
-.fab-options li {
-    margin: 5px 0;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    transition-delay: calc(0.1s * var(--item-index));
-}
-
-.fab-container:hover .fab-options li {
-    transform: translateX(0);
-}
-
-.fab-options a {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: var(--code-bg);
-    color: var(--neon-blue);
-    text-decoration: none;
-    font-family: 'Fira Code', monospace;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    border-radius: 5px 0 0 5px;
-}
-
-.fab-container {
-    position: fixed;
-    top: 80%;
+    top: 75%;
     right: 0;
     transform: translateY(-50%);
     z-index: 999;
@@ -631,6 +524,7 @@ footer {
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
+    touch-action: manipulation; /* Improves touch responsiveness */
 }
 
 .fab-button::after {
@@ -714,6 +608,7 @@ footer {
     transition: all 0.3s ease;
     white-space: nowrap;
     border-radius: 5px 0 0 5px;
+    touch-action: manipulation; /* Improves touch responsiveness */
 }
 
 .fab-options a i {
