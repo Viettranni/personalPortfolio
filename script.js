@@ -261,38 +261,27 @@ window.onload = function () {
 };
 
 // Animate the FAB options
-const fabContainer = document.querySelector('.fab-container');
-const fabOptions = document.querySelectorAll('.fab-options li');
-let isExpanded = false;
+document.addEventListener('DOMContentLoaded', function() {
+    const fabContainer = document.querySelector('.fab-container');
+    const fabButton = fabContainer.querySelector('.fab-button');
 
-fabContainer.addEventListener('click', (e) => {
-    if (e.target.closest('.fab-button')) {
-        isExpanded = !isExpanded;
-        if (isExpanded) {
-            fabOptions.forEach((option, index) => {
-                option.style.transform = `translateY(-${(index + 1) * 60}px)`;
-                option.style.opacity = '1';
-                option.style.pointerEvents = 'auto';
-            });
-        } else {
-            fabOptions.forEach((option) => {
-                option.style.transform = 'translateY(0)';
-                option.style.opacity = '0';
-                option.style.pointerEvents = 'none';
-            });
+    fabButton.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent the click from immediately closing the menu
+        fabContainer.classList.toggle('active');
+    });
+
+    // Close the menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!fabContainer.contains(e.target)) {
+            fabContainer.classList.remove('active');
         }
-    }
-});
+    });
 
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.fab-container') && isExpanded) {
-        isExpanded = false;
-        fabOptions.forEach((option) => {
-            option.style.transform = 'translateY(0)';
-            option.style.opacity = '0';
-            option.style.pointerEvents = 'none';
-        });
-    }
+    // Prevent clicks on the options from closing the menu
+    const fabOptions = fabContainer.querySelector('.fab-options');
+    fabOptions.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
 });
 
 // Scroll down Effect for Skills
