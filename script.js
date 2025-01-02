@@ -144,20 +144,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // MODAL PART
 
-// Get elements for TaskMaster
+// Get elements for JobScout
 const viewDemoBtn1 = document.getElementById('viewDemoBtn1');
 const modal1 = document.getElementById('demoModal1');
 const closeBtn1 = document.getElementById('closeBtn1');
 
-// Get elements for WeatherNow
+// Get elements for JobScout Mobile
 const viewDemoBtn2 = document.getElementById('viewDemoBtn2');
 const modal2 = document.getElementById('demoModal2');
 const closeBtn2 = document.getElementById('closeBtn2');
 
-// Get elements for CodeCollab
+// Get elements for Car Bidder
 const viewDemoBtn3 = document.getElementById('viewDemoBtn3');
 const modal3 = document.getElementById('demoModal3');
 const closeBtn3 = document.getElementById('closeBtn3');
+// Private Repo
+const viewPrivateRepo = document.getElementById('viewPrivateRepo');
+const modal4 = document.getElementById('carBidderPrivateRepo');
+const closeBtn4 = document.getElementById('closeBtn4');
 
 // Show the respective modal when the button is clicked
 viewDemoBtn1.addEventListener('click', () => {
@@ -168,6 +172,9 @@ viewDemoBtn2.addEventListener('click', () => {
 });
 viewDemoBtn3.addEventListener('click', () => {
   modal3.style.display = 'flex';
+});
+viewPrivateRepo.addEventListener('click', () => {
+    modal4.style.display = 'flex';
 });
 
 // Close the modal when the close button is clicked
@@ -180,6 +187,9 @@ closeBtn2.addEventListener('click', () => {
 closeBtn3.addEventListener('click', () => {
   modal3.style.display = 'none';
 });
+closeBtn4.addEventListener('click', () => {
+    modal4.style.display = 'none';
+});
 
 // Optionally, close the modal when clicking outside the modal content
 window.addEventListener('click', (event) => {
@@ -191,6 +201,9 @@ window.addEventListener('click', (event) => {
   }
   if (event.target === modal3) {
     modal3.style.display = 'none';
+  }
+  if (event.target === carBidderPrivateRepo) {
+    carBidderPrivateRepo.style.display = 'none';
   }
 });
 
