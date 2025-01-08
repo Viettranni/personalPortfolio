@@ -155,6 +155,15 @@ h2 {
     font-family: 'Fira Code', monospace;
 }
 
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    color: var(--neon-blue);
+    font-family: 'Fira Code', monospace;
+    grid-column: span 3; 
+}
+
 /* Profile Picture Styling */
 .profile-picture {
     width: 300px;
@@ -263,6 +272,7 @@ h2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    margin-bottom: 30px; /* Add space below each grid */
 }
 
 .project-item {
