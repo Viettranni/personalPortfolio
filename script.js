@@ -158,10 +158,18 @@ const closeBtn2 = document.getElementById('closeBtn2');
 const viewDemoBtn3 = document.getElementById('viewDemoBtn3');
 const modal3 = document.getElementById('demoModal3');
 const closeBtn3 = document.getElementById('closeBtn3');
+
 // Private Repo
 const viewPrivateRepo = document.getElementById('viewPrivateRepo');
 const modal4 = document.getElementById('carBidderPrivateRepo');
 const closeBtn4 = document.getElementById('closeBtn4');
+
+// Los Santos Custom 
+const viewDemoBtn5 = document.getElementById('viewDemoBtn5');
+const modal5 = document.getElementById('demoModal5');
+const closeBtn5 = document.getElementById('closeBtn5');
+
+
 
 // Show the respective modal when the button is clicked
 viewDemoBtn1.addEventListener('click', () => {
@@ -175,6 +183,9 @@ viewDemoBtn3.addEventListener('click', () => {
 });
 viewPrivateRepo.addEventListener('click', () => {
     modal4.style.display = 'flex';
+});
+viewDemoBtn5.addEventListener('click', () => {
+    modal5.style.display = 'flex';
 });
 
 // Close the modal when the close button is clicked
@@ -190,6 +201,9 @@ closeBtn3.addEventListener('click', () => {
 closeBtn4.addEventListener('click', () => {
     modal4.style.display = 'none';
 });
+closeBtn5.addEventListener('click', () => {
+    modal5.style.display = 'none';
+});
 
 // Optionally, close the modal when clicking outside the modal content
 window.addEventListener('click', (event) => {
@@ -204,6 +218,9 @@ window.addEventListener('click', (event) => {
   }
   if (event.target === carBidderPrivateRepo) {
     carBidderPrivateRepo.style.display = 'none';
+  }
+  if (event.target === modal5) {
+    modal5.style.display = 'none';
   }
 });
 
