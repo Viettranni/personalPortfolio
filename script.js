@@ -324,6 +324,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     fabOptions.addEventListener('click', stopPropagation);
     fabOptions.addEventListener('touchstart', stopPropagation);
+
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.body.classList.add('loaded');
+        }, 100);
+    });
 });
 
 // Scroll down Effect for Skills
@@ -369,6 +375,7 @@ function animateSkills() {
         );
     });
 }
+
 
 // Call the function when the DOM is loaded
 document.addEventListener('DOMContentLoaded', animateSkills);
