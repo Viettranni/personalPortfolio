@@ -5,29 +5,37 @@ const codeBackground = document.querySelector('.code-background');
 const codeSnippets = [
     'const softwareEngineer = {',
     '  name: "Viet Tran",',
-    '  skills: ["JavaScript", "React (Vite)", "Node.js", "Express.js", "MongoDB Atlas"],',
-    '  passion: "Building amazing web apps"',
+    '  skills: ["JavaScript", "React (Vite)", "Node.js", "Express.js", "MongoDB Atlas", "Java", "Python", "Spring Boot", "Vaadin"],',
+    '  passion: "Building amazing web apps, but solving people\'s everyday problems with a piece of tech is my true passion!"',
+    '  mindset: "Keep learning, keep building, keep pushing boundaries."',
+    '  motto: "Code with purpose, innovate with heart."',
     '};',
     '',
     'function createAwesomeProject(idea) {',
-    '  return idea + developer.skills.map(skill => {',
-    '    return skill.toLowerCase();',
-    '  }).join(" + ");',
+    '  return `${idea} infused with ` + softwareEngineer.skills.map(skill => skill.toLowerCase()).join(" + ") + " = Success!";',
     '}',
     '',
-    'console.log(createAwesomeProject("Innovation"));'
+    'function inspireDevelopers() {',
+    '  return "Write code that matters. Stay curious. Make an impact!";',
+    '}',
+    '',
+    'console.log(createAwesomeProject("Innovation"));',
+    'console.log(inspireDevelopers());',
+    '',
+    '// Remember: Great code is not just about logic—it\'s about creating something meaningful.'
 ];
 
+
 function animateCodeBackground() {
-    let content = '';
-    for (let i = 0; i < 150; i++) {
-        content += codeSnippets[Math.floor(Math.random() * codeSnippets.length)] + '\n';
-    }
-    codeBackground.textContent = content;
+    const snippetCount = codeSnippets.length;
+    codeBackground.innerText = Array.from({ length: 250 }, () => 
+        codeSnippets[Math.floor(Math.random() * snippetCount)]
+    ).join('\n');
 }
 
+
 animateCodeBackground();
-setInterval(animateCodeBackground, 1500);
+setInterval(animateCodeBackground, 2000);
 
 // Smooth scroll for navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
