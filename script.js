@@ -153,12 +153,10 @@ document.addEventListener("DOMContentLoaded", () => {
 // MODAL PART
 
 // Get elements for JobScout
-const viewDemoBtn1 = document.getElementById('viewDemoBtn1');
-const modal1 = document.getElementById('demoModal1');
-const closeBtn1 = document.getElementById('closeBtn1');
+// const modal1 = document.getElementById('demoModal1');
+// const closeBtn1 = document.getElementById('closeBtn1');
 
 // Get elements for JobScout Mobile
-const viewDemoBtn2 = document.getElementById('viewDemoBtn2');
 const modal2 = document.getElementById('demoModal2');
 const closeBtn2 = document.getElementById('closeBtn2');
 
@@ -180,12 +178,6 @@ const closeBtn5 = document.getElementById('closeBtn5');
 
 
 // Show the respective modal when the button is clicked
-viewDemoBtn1.addEventListener('click', () => {
-  modal1.style.display = 'flex';
-});
-viewDemoBtn2.addEventListener('click', () => {
-  modal2.style.display = 'flex';
-});
 viewDemoBtn3.addEventListener('click', () => {
   modal3.style.display = 'flex';
 });
@@ -197,9 +189,9 @@ viewDemoBtn5.addEventListener('click', () => {
 });
 
 // Close the modal when the close button is clicked
-closeBtn1.addEventListener('click', () => {
-  modal1.style.display = 'none';
-});
+// closeBtn1.addEventListener('click', () => {
+//   modal1.style.display = 'none';
+// });
 closeBtn2.addEventListener('click', () => {
   modal2.style.display = 'none';
 });
@@ -215,9 +207,9 @@ closeBtn5.addEventListener('click', () => {
 
 // Optionally, close the modal when clicking outside the modal content
 window.addEventListener('click', (event) => {
-  if (event.target === modal1) {
-    modal1.style.display = 'none';
-  }
+//   if (event.target === modal1) {
+//     modal1.style.display = 'none';
+//   }
   if (event.target === modal2) {
     modal2.style.display = 'none';
   }
